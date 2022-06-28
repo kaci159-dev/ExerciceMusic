@@ -91,42 +91,59 @@ exoticNext.addEventListener("click", function(){
 
 /**********************PLAY********************/
 
-var playKeyArr = ["A","B","Bb","C","C#","D","D#","E","F","F#","G","G#"]
-var playExoticScaleArr = ["SP","MM","HM","Hm"]
-var playModesArr = ["1","2","3","4","5","6","7"]
-var playAbsoluteArr = ["1","2","3","4","5","6","7"]
-var playRelativeArr = ["1","3","5","6"]
+function loadCombination(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'combinations.json', true);
+    xhr.onload = function(){
+        if(this.status === 200){
+            const combination = JSON.parse(this.responseText); 
+
+            var playExoticScaleArr = ["SP","MM","HM","Hm"]
+            var playAbsoluteArr = ["1","2","3","4","5","6","7"]
+            var playRelativeArr = ["1","3","5","6"]
 
 
-const playKey = document.querySelector('.key')
-const playExoticScale = document.querySelector('.exoticScale')
-const playMode = document.querySelector('.mode')
-const playAbsolute = document.querySelector('.absolute')
-const playRelative = document.querySelector('.relative')
-const playRandomButton = document.querySelector('.playRandomButton')
+            const playKey = document.querySelector('.key')
+            const playExoticScale = document.querySelector('.exoticScale')
+            const playMode = document.querySelector('.mode')
+            const playAbsolute = document.querySelector('.absolute')
+            const playRelative = document.querySelector('.relative')
+            const playRandomButton = document.querySelector('.playRandomButton')
 
 
-function playRandom(){
-    var relativeRandomArr = []
-    const shuffledplayKeyArr = playKeyArr.sort((a, b) => 0.5 - Math.random());
-    const shuffledplayExoticScale = playExoticScaleArr.sort((a, b) => 0.5 - Math.random());
-    const shuffledplayModesArr = playModesArr.sort((a, b) => 0.5 - Math.random());
-    const shuffledeplayAbsoluteArr = playAbsoluteArr.sort((a, b) => 0.5 - Math.random());
-    
+            function playRandom(){
+                
+                const shuffledplayExoticScale = playExoticScaleArr.sort((a, b) => 0.5 - Math.random());
+                const shuffledeplayAbsoluteArr = playAbsoluteArr.sort((a, b) => 0.5 - Math.random());
+                var relativeRandomArr = []
+                var combinationArr = []
 
-    playKey.innerText = shuffledplayKeyArr[0]
-    playExoticScale.innerText = shuffledplayExoticScale[0]
-    playMode.innerText = shuffledplayModesArr[0]
-    playAbsolute.innerText = shuffledeplayAbsoluteArr.join(" ")
-    
+                playExoticScale.innerText = shuffledplayExoticScale[0]
+                playAbsolute.innerText = shuffledeplayAbsoluteArr.join(" ")
+                
+                var randI = Math.floor(Math.random() * 3);
+                for(z=1;z<=4;z++){
+                    var randJ = Math.floor(Math.random() * 7);
+                    combinationArr.push(combination[randI][z][randJ])    
+                    playKey.innerText = combinationArr.join("-")
+                }
 
-    for(k=0;k<7;k++){
-        var rand = Math.floor(Math.random() * 4);
-        relativeRandomArr.push(playRelativeArr[rand])  
-        playRelative.innerText = relativeRandomArr.join(" ")
+                for(k=0;k<7;k++){
+                    var rand = Math.floor(Math.random() * 4);
+                    relativeRandomArr.push(playRelativeArr[rand])  
+                    playRelative.innerText = relativeRandomArr.join(" ")
+                }
+            }
+
+            playRandomButton.addEventListener("click", function(){
+                playRandom()
+            })       
+        }
     }
+    xhr.send();
 }
+loadCombination()
 
-playRandomButton.addEventListener("click", function(){
-    playRandom()
-})
+
+
+
