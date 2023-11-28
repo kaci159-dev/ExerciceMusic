@@ -1,4 +1,4 @@
-section{
+section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,18 +8,7 @@ section{
     text-align: center;
 }
 
-h1{
+h1 {
     font-size: 5rem;
     margin: 1rem;
-}
-
-
-button{
-    font-size: 2rem;
-    background-color: white;
-    padding: 2rem;
-    border: none;
-    border-radius: 1rem;
-    margin: 1rem;
-    width: 10rem;
 }
