@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family :calibri;
+    font-family: calibri;
 }
 
-section{
+section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,30 +15,37 @@ section{
     text-align: center;
 }
 
-h1{
+h1 {
     font-size: 8rem;
     margin: 1rem;
 }
 
-button{
+button {
     font-size: 2rem;
     background-color: white;
-    padding: 2rem;
+    padding: .5rem;
     border: none;
     border-radius: 1rem;
-    margin: 1rem;
-    width: 20rem;
+    width: 10rem;
+}
+
+img {
+
+    position: fixed;
+    width: 100%;
+    height: 10%;
+
 }
 
 /*******************SCALES****************/
-#Scales{
-    background-color: aqua;
+#Scales {
+    background-color: rgb(0, 206, 206);
 }
 
-#Exotic{
-    background-color: rebeccapurple ;
+#Exotic {
+    background-color: rgb(81, 59, 103);
 }
 
-#Play{
-    background-color: rgb(214, 120, 83) ;
+#Play {
+    background-color: rgb(171, 109, 85);
 }
