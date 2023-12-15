@@ -42,6 +42,14 @@ img {
     background-color: rgb(72, 113, 113);
 }
 
+#Inversions {
+    background-color: rgb(173, 90, 173);
+}
+
+#Progressions {
+    background-color: rgb(86, 116, 217);
+}
+
 #Exotic {
     background-color: rgb(94, 81, 107);
 }

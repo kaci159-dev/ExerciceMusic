@@ -48,6 +48,42 @@ previous.addEventListener("click", function () {
 
 })
 
+/****************Inversions*******************/
+
+var inversionskeyArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+var inversionsArr = ["1", "2", "3"]
+
+const inversionsKeys = inversionskeyArr.sort((a, b) => 0.5 - Math.random());
+const inversionsPositionShuffled = inversionsArr.sort((a, b) => 0.5 - Math.random());
+
+const inversionsCompletion = document.querySelector('.inversionsCompletion')
+
+const inversionKey = document.querySelector(".inversionsKey")
+scalesKey.innerText = shuffledKeys[0]
+
+const inversionsPosition = document.querySelector(".inversionsPosition")
+inversionsPosition.innerText = inversionsPositionShuffled.join(" ")
+
+const inversionsnext = document.querySelector('.inversionsnext')
+
+
+l = 0
+inversionsnext.addEventListener("click", function () {
+
+    if (l < inversionsKeys.length) {
+
+        inversionKey.innerText = inversionsKeys[l]
+        inversionsCompletion.innerText = `${l + 1}/12`
+        l++
+
+    } else {
+        l = 0
+        inversionKey.innerText = inversionsKeys[l]
+        inversionsCompletion.innerText = `${l + 1}/12`
+        l++
+    }
+})
+
 
 /****************Exotic*******************/
 
@@ -143,6 +179,45 @@ function loadCombination() {
     xhr.send();
 }
 loadCombination()
+
+
+
+
+/****************Progressions*******************/
+
+// var progressionArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+// var intervalArr = ["1", "2", "3", "4", "5", "6", "7"]
+
+// const progressionshuffledKeys = progressionArr.sort((a, b) => 0.5 - Math.random());
+// const progressionshuffledIntervals = intervalArr.sort((a, b) => 0.5 - Math.random());
+
+// const ProgressionsCompletion = document.querySelector('.ProgressionsCompletion')
+
+// const ProgressionsKey = document.querySelector(".ProgressionsKey")
+// ProgressionsKey.innerText = progressionshuffledKeys[0]
+
+// const ProgressionsInterval = document.querySelector(".ProgressionsInterval")
+// ProgressionsInterval.innerText = progressionshuffledIntervals.join(" ")
+
+// const progressionnext = document.querySelector('.progressionnext')
+
+// v = 1
+// progressionnext.addEventListener("click", function () {
+
+//     if (v < progressionshuffledKeys.length) {
+
+//         ProgressionsKey.innerText = `${progressionshuffledKeys[v]} ${progressionshuffledIntervals[0]}`
+//         ProgressionsCompletion.innerText = `${v + 1}/12`
+//         v++
+
+//     } else {
+//         v = 0
+//         ProgressionsKey.innerText = progressionshuffledKeys[v]
+//         ProgressionsCompletion.innerText = `${v + 1}/12`
+//         v++
+//     }
+// })
+
 
 
 
