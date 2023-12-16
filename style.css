@@ -10,14 +10,14 @@ section {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
 }
 
 button {
     background-color: rgb(239, 239, 239);
-    margin: 0.2rem;
-    padding: 0.2rem;
+    font-size: 1rem;
+    padding: .5rem;
     border: none;
     border-radius: 1rem;
     width: 5rem;
@@ -68,17 +68,17 @@ a {
 }
 
 #Inversions {
-    background-color: rgb(173, 90, 173);
-}
-
-#Progressions {
-    background-color: rgb(86, 116, 217);
+    background-color: rgb(156, 113, 156);
 }
 
 #Exotic {
-    background-color: rgb(94, 81, 107);
+    background-color: rgb(102, 107, 81);
 }
 
 #Play {
     background-color: rgb(129, 104, 95);
+}
+
+#Progressions {
+    background-color: rgb(86, 116, 217);
 }
