@@ -23,6 +23,11 @@ button {
     width: 5rem;
 }
 
+small {
+    padding: 1rem;
+    font-size: .7rem
+}
+
 /************PIANO*************/
 img {
     position: fixed;
@@ -62,6 +67,8 @@ a {
 
 }
 
+
+
 /*******************SCALES****************/
 #Scales {
     background-color: rgb(72, 113, 113);
@@ -70,6 +77,7 @@ a {
 #Inversions {
     background-color: rgb(156, 113, 156);
 }
+
 
 #Exotic {
     background-color: rgb(102, 107, 81);

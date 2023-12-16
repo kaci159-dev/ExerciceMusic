@@ -72,7 +72,7 @@ function inversionRandom(l) {
     if (l < 50) {
         inversionsContainer.push(inversionliner)
         inversionline.innerText = inversionsContainer[l]
-        inversionsCompletion.innerText = `${l + 1}/50`
+        inversionsCompletion.innerText = `${l + 1}/72`
     } else {
         inversionsCompletion.innerText = "DONE!"
         return
