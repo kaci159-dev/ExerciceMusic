@@ -1,21 +1,20 @@
 /****************Scales*******************/
 
+const scalesCompletion = document.querySelector('.scalesCompletion')
+const scalesKey = document.querySelector(".scalesKey")
+const scalesModes = document.querySelector(".scalesModes")
+const next = document.querySelector('.next')
+const previous = document.querySelector('.previous')
+
 var keyArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
 var modesArr = ["1", "2", "3", "4", "5", "6", "7"]
 
 const shuffledKeys = keyArr.sort((a, b) => 0.5 - Math.random());
 const shuffledModes = modesArr.sort((a, b) => 0.5 - Math.random());
 
-const scalesCompletion = document.querySelector('.scalesCompletion')
-
-const scalesKey = document.querySelector(".scalesKey")
 scalesKey.innerText = shuffledKeys[0]
 
-const scalesModes = document.querySelector(".scalesModes")
 scalesModes.innerText = shuffledModes.join(" ")
-
-const next = document.querySelector('.next')
-const previous = document.querySelector('.previous')
 
 i = 1
 next.addEventListener("click", function () {
@@ -50,42 +49,46 @@ previous.addEventListener("click", function () {
 
 /****************Inversions*******************/
 
-var inversionskeyArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
-var inversionsArr = ["1", "2", "3"]
+const inversionline = document.querySelector(".inversionline")
+const inversionsCompletion = document.querySelector('.inversionsCompletion')
+const inversionsnext = document.querySelector('.inversionsnext')
 
+var inversionskeyArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+var inversionTonalityArr = ["m", ""]
+var inversionsArr = ["1", "2", "3"]
+var inversionsContainer = []
 const inversionsKeys = inversionskeyArr.sort((a, b) => 0.5 - Math.random());
 const inversionsPositionShuffled = inversionsArr.sort((a, b) => 0.5 - Math.random());
 
-const inversionsCompletion = document.querySelector('.inversionsCompletion')
-
-const inversionKey = document.querySelector(".inversionsKey")
-scalesKey.innerText = shuffledKeys[0]
-
-const inversionsPosition = document.querySelector(".inversionsPosition")
-inversionsPosition.innerText = inversionsPositionShuffled.join(" ")
-
-const inversionsnext = document.querySelector('.inversionsnext')
-
-
 l = 0
-inversionsnext.addEventListener("click", function () {
+function inversionRandom(l) {
 
-    if (l < inversionsKeys.length) {
+    const shuffledInversionKey = inversionskeyArr.sort((a, b) => 0.5 - Math.random());
+    const shuffledInversionTonality = inversionTonalityArr.sort((a, b) => 0.5 - Math.random());
+    const shuffleInversions = inversionsArr.sort((a, b) => 0.5 - Math.random());
 
-        inversionKey.innerText = inversionsKeys[l]
-        inversionsCompletion.innerText = `${l + 1}/12`
-        l++
+    const inversionliner = `${shuffledInversionKey[0]}${shuffledInversionTonality[0]} ${shuffleInversions[0]} `
 
+    if (l < 50) {
+        inversionsContainer.push(inversionliner)
+        inversionline.innerText = inversionsContainer[l]
+        inversionsCompletion.innerText = `${l + 1}/50`
     } else {
-        l = 0
-        inversionKey.innerText = inversionsKeys[l]
-        inversionsCompletion.innerText = `${l + 1}/12`
-        l++
+        inversionsCompletion.innerText = "DONE!"
+        return
     }
+}
+
+inversionsnext.addEventListener("click", function () {
+    inversionRandom(l)
+    l++
 })
 
 
 /****************Exotic*******************/
+const line = document.querySelector("#line")
+const exoticCompletion = document.querySelector(".exoticCompletion")
+const exoticNext = document.querySelector(".exoticNext")
 
 var exoticKeyArr = ["A", "B", "C", "D", "E", "F", "G"]
 var exoticAccidentalArr = ["", "#", "b"]
@@ -93,13 +96,8 @@ var exoticScaleArr = ["DHm", "DHM", "SP", "MM", "HM", "Hm"]
 var exoticModesArr = ["1", "2", "3", "4", "5", "6", "7"]
 var exoticContainer = []
 
-const line = document.querySelector("#line")
-const exoticNext = document.querySelector(".exoticNext")
-const exoticPrevious = document.querySelector(".exoticPrevious")
-
-const exoticCompletion = document.querySelector(".exoticCompletion")
-
 j = 0
+
 function exoticRandom(j) {
 
     const shuffledexoticKey = exoticKeyArr.sort((a, b) => 0.5 - Math.random());
@@ -134,11 +132,6 @@ function loadCombination() {
         if (this.status === 200) {
             const combination = JSON.parse(this.responseText);
 
-            var playExoticScaleArr = ["SP", "MM", "HM", "Hm"]
-            var playAbsoluteArr = ["1", "2", "3", "4", "5", "6", "7"]
-            var playRelativeArr = ["1", "3", "5", "6"]
-
-
             const playKey = document.querySelector('.key')
             const playExoticScale = document.querySelector('.exoticScale')
             const playMode = document.querySelector('.mode')
@@ -146,6 +139,9 @@ function loadCombination() {
             const playRelative = document.querySelector('.relative')
             const playRandomButton = document.querySelector('.playRandomButton')
 
+            var playExoticScaleArr = ["SP", "MM", "HM", "Hm"]
+            var playAbsoluteArr = ["1", "2", "3", "4", "5", "6", "7"]
+            var playRelativeArr = ["1", "3", "5", "6"]
 
             function playRandom() {
 
@@ -182,41 +178,43 @@ loadCombination()
 
 
 
-
 /****************Progressions*******************/
 
-// var progressionArr = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
-// var intervalArr = ["1", "2", "3", "4", "5", "6", "7"]
+const ProgressionsCompletion = document.querySelector('.ProgressionsCompletion')
+const ProgressionsLine = document.querySelector(".ProgressionsLine")
+const ProgressionsInterval = document.querySelector(".ProgressionsInterval")
+const progressionnext = document.querySelector('.progressionnext')
 
-// const progressionshuffledKeys = progressionArr.sort((a, b) => 0.5 - Math.random());
-// const progressionshuffledIntervals = intervalArr.sort((a, b) => 0.5 - Math.random());
+var progressionsKeys = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+var modeBegin = ["1", "2", "3", "4", "5", "6", "7"]
+var modeEnd = ["1", "2", "3", "4", "5", "6", "7"]
+var intervalsArr = ["1", "2", "3", "4", "5", "6", "7"]
 
-// const ProgressionsCompletion = document.querySelector('.ProgressionsCompletion')
+const progressionshuffledKeys = progressionsKeys.sort((a, b) => 0.5 - Math.random());
+const modeBeginshuffled = modeBegin.sort((a, b) => 0.5 - Math.random());
+const modeEndshuffled = modeEnd.sort((a, b) => 0.5 - Math.random());
+const intervalsshuffled = intervalsArr.sort((a, b) => 0.5 - Math.random());
 
-// const ProgressionsKey = document.querySelector(".ProgressionsKey")
-// ProgressionsKey.innerText = progressionshuffledKeys[0]
+var intervalsSliced = intervalsshuffled.slice(0, 4)
+ProgressionsInterval.innerText = intervalsSliced.join(" ")
 
-// const ProgressionsInterval = document.querySelector(".ProgressionsInterval")
-// ProgressionsInterval.innerText = progressionshuffledIntervals.join(" ")
+v = 0
+progressionnext.addEventListener("click", function () {
 
-// const progressionnext = document.querySelector('.progressionnext')
+    if (v < modeBegin.length) {
 
-// v = 1
-// progressionnext.addEventListener("click", function () {
+        ProgressionsCompletion.innerText = `${v + 1}/7`
+        ProgressionsLine.innerText = `${progressionshuffledKeys[v]}${modeBeginshuffled[v]} => ${modeEndshuffled[v]}`
 
-//     if (v < progressionshuffledKeys.length) {
+        v++
 
-//         ProgressionsKey.innerText = `${progressionshuffledKeys[v]} ${progressionshuffledIntervals[0]}`
-//         ProgressionsCompletion.innerText = `${v + 1}/12`
-//         v++
-
-//     } else {
-//         v = 0
-//         ProgressionsKey.innerText = progressionshuffledKeys[v]
-//         ProgressionsCompletion.innerText = `${v + 1}/12`
-//         v++
-//     }
-// })
+    } else {
+        v = 0
+        ProgressionsCompletion.innerText = `${v + 1}/7`
+        ProgressionsLine.innerText = `${progressionshuffledKeys[v]}${modeBeginshuffled[v]} => ${modeEndshuffled[v]}`
+        v++
+    }
+})
 
 
 
