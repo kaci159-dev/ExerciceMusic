@@ -9,9 +9,8 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100vh;
-    font-size: 5rem;
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -29,28 +28,34 @@ button {
     width: 10rem;
 }
 
+/************PIANO*************/
 img {
     position: fixed;
+    top: 5vh;
     width: 100%;
-    height: 5rem;
+    height: 10%;
 }
 
 /******************NAV********************/
 
-nav {
+.menu {
     position: fixed;
-    top: 5rem;
-    width: 10%;
+    height: 5vh;
+    width: 100vw;
+    font-size: 1rem;
+    background-color: rgb(231, 231, 231);
 }
 
 ul {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
 }
 
 li {
-    margin: 1rem;
+    margin: .5rem;
     list-style: none;
+
 }
 
 a {
