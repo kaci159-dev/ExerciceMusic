@@ -69,7 +69,7 @@ function inversionRandom(l) {
 
     const inversionliner = `${shuffledInversionKey[0]}${shuffledInversionTonality[0]} ${shuffleInversions[0]} `
 
-    if (l < 50) {
+    if (l < 72) {
         inversionsContainer.push(inversionliner)
         inversionline.innerText = inversionsContainer[l]
         inversionsCompletion.innerText = `${l + 1}/72`
