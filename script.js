@@ -154,7 +154,7 @@ function loadCombination() {
                 playAbsolute.innerText = shuffledeplayAbsoluteArr.join(" ")
 
                 var randI = Math.floor(Math.random() * 3);
-                for (z = 1; z <= 4; z++) {
+                for (z = 1; z <= 4; z++) { 
                     var randJ = Math.floor(Math.random() * 7);
                     combinationArr.push(combination[randI][z][randJ])
                     playKey.innerText = combinationArr.join("-")
@@ -186,9 +186,9 @@ const ProgressionsInterval = document.querySelector(".ProgressionsInterval")
 const progressionnext = document.querySelector('.progressionnext')
 
 var progressionsKeys = ["A", "B", "Bb", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
-var modeBegin = ["1", "2", "3", "4", "5", "6", "7"]
-var modeEnd = ["1", "2", "3", "4", "5", "6", "7"]
-var intervalsArr = ["1", "2", "3", "4", "5", "6", "7"]
+var modeBegin = ["1", "2", "3", "4", "5", "6", "7", "2", "3", "4", "5", "6"]
+var modeEnd = ["1", "2", "3", "4", "5", "6", "7", "2", "3", "4", "5", "6"]
+var intervalsArr = ["1", "2", "3", "4", "5", "6", "7", "2", "3", "4", "5", "6"]
 
 const progressionshuffledKeys = progressionsKeys.sort((a, b) => 0.5 - Math.random());
 const modeBeginshuffled = modeBegin.sort((a, b) => 0.5 - Math.random());
@@ -196,24 +196,25 @@ const modeEndshuffled = modeEnd.sort((a, b) => 0.5 - Math.random());
 const intervalsshuffled = intervalsArr.sort((a, b) => 0.5 - Math.random());
 
 var intervalsSliced = intervalsshuffled.slice(0, 4)
+
 ProgressionsInterval.innerText = intervalsSliced.join(" ")
 
 v = 0
 progressionnext.addEventListener("click", function () {
 
     if (v < modeBegin.length) {
-
-        ProgressionsCompletion.innerText = `${v + 1}/7`
+        ProgressionsCompletion.innerText = `${v + 1}/12`
         ProgressionsLine.innerText = `${progressionshuffledKeys[v]}${modeBeginshuffled[v]} => ${modeEndshuffled[v]}`
 
         v++
 
     } else {
         v = 0
-        ProgressionsCompletion.innerText = `${v + 1}/7`
+        ProgressionsCompletion.innerText = `${v + 1}/12`
         ProgressionsLine.innerText = `${progressionshuffledKeys[v]}${modeBeginshuffled[v]} => ${modeEndshuffled[v]}`
         v++
     }
+
 })
 
 
